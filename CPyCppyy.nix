@@ -19,9 +19,10 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
   dependencies = [ cppyy-backend ];
 
-  meta = with lib; {
+  meta = {
     homepage = "https://github.com/wlav/CPyCppyy";
     description = "Cling-based Python-C++ bindings for CPython";
-    license = licenses.bsd3;
+    license = lib.licenses.bsd3;
+    inherit (cppyy-backend.meta) platforms;
   };
 }

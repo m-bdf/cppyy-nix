@@ -21,9 +21,10 @@ buildPythonPackage rec {
 
   pythonImportsCheck = [ "cppyy" ];
 
-  meta = with lib; {
+  meta ={
     homepage = "https://github.com/wlav/cppyy";
     description = "Python-C++ bindings interface based on Cling/LLVM";
-    license = licenses.bsd3;
+    license = lib.licenses.bsd3;
+    inherit (CPyCppyy.meta) platforms;
   };
 }
