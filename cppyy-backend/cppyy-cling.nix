@@ -3,6 +3,7 @@
   stdenv,
   fetchPypi,
   buildPythonPackage,
+  autoPatchelfHook,
   bash,
 }:
 
@@ -33,6 +34,7 @@ buildPythonPackage rec {
     inherit version format;
   } // srcs.${stdenv.system});
 
+  nativeBuildInputs = [ autoPatchelfHook ];
   buildInputs = [ bash ];
 
   pythonImportsCheck = [ "cppyy_backend" ];
